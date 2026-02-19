@@ -88,7 +88,7 @@ The pack uses the following network settings (configurable in scripts):
 - **Bridge**: vmbr0
 - **DNS**: 1.1.1.1
 
-**Note:** While the DNS setting in the FortiSOAR playbook (Network Interfaces module) is set to `1.1.1.1`, the provisioning scripts currently use the **Proxmox server's DNS configuration** for the provisioned instances. The scripts do not explicitly set DNS via `--nameserver` in `pct create`, so instances inherit the Proxmox host's DNS settings. To use a specific DNS server (like 1.1.1.1), modify the scripts to add `--nameserver 1.1.1.1` to the `pct create` command.
+**Note:** The DNS setting in the FortiSOAR playbook (Network Interfaces module) is set to `1.1.1.1`, and the LXC provisioning scripts (`rockylinux9-ct.sh`, `debian13-ct.sh`, `ubuntu2204-ct.sh`) now explicitly set this DNS via `--nameserver 1.1.1.1` in the `pct create` command. VM DNS is still controlled by the golden image/template used by `rocky9-vm.sh` (for VMs, configure DNS inside the template OS or via cloud-init).
 
 ## Troubleshooting
 

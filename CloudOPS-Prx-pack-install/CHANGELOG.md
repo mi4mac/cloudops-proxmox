@@ -11,6 +11,9 @@
   - LXC scripts (`rockylinux9-ct.sh`, `debian13-ct.sh`, `ubuntu2204-ct.sh`) accept password as 7th argument.
   - VM script (`rocky9-vm.sh`) accepts password as 6th argument (note: VMs require cloud-init template to set password).
 
+- **DNS consistency for containers**
+  - LXC provisioning scripts now pass `--nameserver 1.1.1.1` to `pct create` so container DNS matches the `dNS` value (`1.1.1.1`) stored in the Network Interfaces module and documented in the README.
+
 ### Changed
 
 - **Provision VM Instances playbook**

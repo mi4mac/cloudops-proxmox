@@ -30,6 +30,7 @@ BRIDGE="vmbr0"
 VLAN_TAG="255"
 GATEWAY="10.255.255.1"
 CIDR_SUFFIX="/24"
+NAMESERVER="1.1.1.1"
 
 # Use full paths so script works when run via SSH (minimal PATH)
 # pvesh is in /usr/bin on Proxmox VE; pct is in /usr/sbin
@@ -49,6 +50,7 @@ echo "Creating CTID ${CTID} (${CT_NAME}) from template ${TEMPLATE} on node ${NOD
   --memory "${MEM_MB}" \
   --rootfs "${STORAGE}:${DISK_GB}" \
   --net0 "name=eth0,bridge=${BRIDGE},tag=${VLAN_TAG},ip=${IP_ADDR}${CIDR_SUFFIX},gw=${GATEWAY}" \
+  --nameserver "${NAMESERVER}" \
   --password "${ROOT_PASSWORD}" \
   --swap "${SWAP_MB}" \
   --features nesting=1
