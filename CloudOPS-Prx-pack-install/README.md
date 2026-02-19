@@ -19,6 +19,8 @@ This FortiSOAR content pack provides automated VM and Container lifecycle manage
 ### 2. Deploy Proxmox Scripts (Required)
 **IMPORTANT:** This package does not include Proxmox scripts. The pack requires provisioning and destroy scripts on your Proxmox host. Obtain them from the project's `scripts/` folder in the source repository, copy them to `/root/` on your Proxmox server, and set permissions (e.g. `chmod 644 /root/*.sh`). The SSH connector user (typically root) must be able to run them.
 
+**Note for VM scripts:** The VM provisioning script (`rocky9-vm.sh`) requires a **golden image (template VM)** to be created in Proxmox first. The script clones from this template using `qm clone`. By default, the script uses `TEMPLATE_ID="9000"` - ensure you have a VM template with this ID, or update the `TEMPLATE_ID` variable in the script to match your template's VMID. To create a template: install and configure your base VM, then convert it to a template using `qm template <vmid>` in Proxmox.
+
 ### 3. Configure SSH Connector
 1. In FortiSOAR, go to **Automation** → **Connectors**
 2. Configure an SSH connector pointing to your Proxmox host
