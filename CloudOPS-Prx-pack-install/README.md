@@ -85,6 +85,8 @@ The pack uses the following network settings (configurable in scripts):
 - **Bridge**: vmbr0
 - **DNS**: 1.1.1.1
 
+**Note:** While the DNS setting in the FortiSOAR playbook (Network Interfaces module) is set to `1.1.1.1`, the provisioning scripts currently use the **Proxmox server's DNS configuration** for the provisioned instances. The scripts do not explicitly set DNS via `--nameserver` in `pct create`, so instances inherit the Proxmox host's DNS settings. To use a specific DNS server (like 1.1.1.1), modify the scripts to add `--nameserver 1.1.1.1` to the `pct create` command.
+
 ## Troubleshooting
 
 ### Scripts Not Found (Exit Code 127)
