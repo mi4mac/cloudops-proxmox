@@ -1,0 +1,28 @@
+# Build / package
+*.zip
+
+# macOS
+.DS_Store
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Cursor
+.cursor/
+agent-tools/
+
+# Stray empty placeholder files (if any)
+/Provision
+/Manage
+/Get
+/Destroy
+/AD
+CloudOPS-Prx-pack-install/Provision
+CloudOPS-Prx-pack-install/Manage
+CloudOPS-Prx-pack-install/Get
+CloudOPS-Prx-pack-install/Destroy
+CloudOPS-Prx-pack-install/AD

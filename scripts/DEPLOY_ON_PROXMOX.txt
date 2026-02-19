@@ -1,0 +1,27 @@
+Deploy these scripts on the Proxmox host so FortiSOAR can run them via SSH.
+
+1. Copy all 8 scripts to /root/ on the Proxmox server:
+   - rocky9-vm.sh
+   - debian13-ct.sh
+   - rockylinux9-ct.sh
+   - ubuntu2204-ct.sh
+   - destroy_rocky9-vm.sh
+   - destroy_debian13-ct.sh
+   - destroy_rockylinux9-ct.sh
+   - destroy_ubuntu2204-ct.sh
+
+2. Make them readable (and optionally executable):
+   chmod 644 /root/rocky9-vm.sh /root/debian13-ct.sh /root/rockylinux9-ct.sh /root/ubuntu2204-ct.sh /root/destroy_rocky9-vm.sh /root/destroy_debian13-ct.sh /root/destroy_rockylinux9-ct.sh /root/destroy_ubuntu2204-ct.sh
+
+   The playbooks invoke them with: /usr/bin/bash /root/<script>.sh
+   so execute permission is not required.
+
+3. Ensure the SSH connector in FortiSOAR is configured to log in as root
+   (or a user that can read /root/*.sh and run /usr/sbin/qm and /usr/sbin/pct).
+
+4. TROUBLESHOOTING exit code 127 (command not found):
+   On the Proxmox host, run as the same user the SSH connector uses (e.g. root):
+     ls -la /root/*.sh
+     /usr/bin/bash --version
+     /usr/bin/bash /root/rocky9-vm.sh testvm 10.255.255.100 2 2048 20 0
+   If the last command fails, fix the error on Proxmox first, then retry from FortiSOAR.
