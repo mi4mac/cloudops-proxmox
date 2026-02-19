@@ -3,6 +3,22 @@
 ## Overview
 This FortiSOAR content pack provides automated VM and Container lifecycle management for Proxmox VE environments. It enables users to request, approve, provision, and destroy virtual machines and containers through FortiSOAR playbooks.
 
+## ⚠️ Important Notice - PoC Use Only
+
+**This package is intended for Proof of Concept (PoC) use only and is NOT recommended for production environments.**
+
+**Security Concerns:**
+- Uses SSH password authentication instead of SSH keys or API-based authentication
+- Default root password (`fortinet`) is hardcoded in scripts
+- No API integration with Proxmox (relies on SSH command execution)
+- Password-based authentication poses security risks in production
+
+**Limitations:**
+- Active Directory (AD) integration has limitations and may not be fully production-ready
+- Limited security hardening and access controls
+
+**⚠️ WARNING:** Using this package in a production environment could expose your infrastructure to security risks. Users should be aware of these limitations and security concerns before deployment.
+
 ## Requirements
 - FortiSOAR version 7.2.0 or higher
 - Proxmox VE host accessible via SSH
