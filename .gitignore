@@ -1,5 +1,6 @@
 # Build / package
 *.zip
+!CloudOPS-Prx-pack-1.1.0.zip
 
 # macOS
 .DS_Store
