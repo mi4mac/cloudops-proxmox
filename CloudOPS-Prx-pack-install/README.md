@@ -16,6 +16,7 @@ This FortiSOAR content pack provides automated VM and Container lifecycle manage
 **Limitations:**
 - Active Directory (AD) integration has limitations and may not be fully production-ready
 - Limited security hardening and access controls
+- **Firewall rules are not automatically deployed** - This package does not deploy any firewall rules onto the firewall. If provisioned instances need to establish connections to different servers or services, firewall rules must be configured manually/additionally. Firewall rule automation is planned for future releases.
 
 **⚠️ WARNING:** Using this package in a production environment could expose your infrastructure to security risks. Users should be aware of these limitations and security concerns before deployment.
 
@@ -105,6 +106,8 @@ The pack uses the following network settings (configurable in scripts):
 - **DNS**: 1.1.1.1
 
 **Note:** The DNS setting in the FortiSOAR playbook (Network Interfaces module) is set to `1.1.1.1`, and the LXC provisioning scripts (`rockylinux9-ct.sh`, `debian13-ct.sh`, `ubuntu2204-ct.sh`) now explicitly set this DNS via `--nameserver 1.1.1.1` in the `pct create` command. VM DNS is still controlled by the golden image/template used by `rocky9-vm.sh` (for VMs, configure DNS inside the template OS or via cloud-init).
+
+**Firewall Rules:** This package does not automatically deploy firewall rules. If provisioned instances need to connect to different servers or services, firewall rules must be configured manually on your firewall. Automatic firewall rule deployment is planned for future releases.
 
 ## Troubleshooting
 
