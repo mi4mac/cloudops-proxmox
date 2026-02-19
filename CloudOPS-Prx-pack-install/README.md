@@ -62,6 +62,7 @@ After installation, configure these global variables in FortiSOAR:
 
 1. Navigate to **Service Management** → **VM Instances**
 2. Click **Request VM Instance** action button
+   - **Note:** This action button must be defined via **Edit** in the VM Instances module. Configure it to trigger the "Request VM Instance" playbook.
 3. Fill in the request form:
    - VM Name (alphanumeric + underscore only)
    - VM Type (Rocky9-VM, Debian13-CT, RockyLinux9-CT, or Ubuntu2204-CT)
